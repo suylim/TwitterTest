@@ -13,7 +13,7 @@ import twitter4j.Status;
 
 public class SparkStream {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args)  throws InterruptedException {
 
 
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JavaTwitterTest");
