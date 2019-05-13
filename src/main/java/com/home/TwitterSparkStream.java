@@ -1,8 +1,6 @@
 package com.home;
 
 import java.util.Arrays;
-import java.util.regex.Pattern;
-
 import org.apache.spark.SparkConf;
 import org.apache.spark.streaming.Durations;
 import org.apache.spark.streaming.api.java.JavaDStream;
@@ -10,12 +8,11 @@ import org.apache.spark.streaming.api.java.JavaPairDStream;
 import org.apache.spark.streaming.api.java.JavaReceiverInputDStream;
 import org.apache.spark.streaming.api.java.JavaStreamingContext;
 import org.apache.spark.streaming.twitter.*;
-
 import scala.Tuple2;
 import twitter4j.Status;
 
 public class SparkStream {
-    public static final Pattern SPACE =Pattern.compile(" ");
+
     public static void main(String[] args)  {
 
 
