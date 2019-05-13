@@ -25,10 +25,10 @@ public class SparkStream {
         SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JavaTwitterHashTagJoinSentiments");
 
 
-        String consumerKey = "Wswc51HXfGwepKueRd9KpHpJK";
-        String consumerSecret = "qcldScTBqbO0QgvxyQkN4RdBfTNkCyQF12x74FMOx0QFwxA9XO";
-        String accessToken = "98895636-LrWNYaE2nGtb4HqIEl5ng6hqaDUNb0kyYzNE8Eo19";
-        String accessTokenSecret = "250IcebcJPqAkhs0rPLVLavSbTGXhsNTA5uesQ0jyvKWZ";
+        String consumerKey = "#############";
+        String consumerSecret = "#############";
+        String accessToken = "##############-##################";
+        String accessTokenSecret = "####################";
         String[] filters = {"hadoop"};
 
         System.setProperty("twitter4j.oauth.consumerKey", consumerKey);
