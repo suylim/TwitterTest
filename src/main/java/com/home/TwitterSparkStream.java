@@ -26,15 +26,14 @@ public class SparkStream {
         String consumerSecret = "#############";
         String accessToken = "##############-##################";
         String accessTokenSecret = "####################";
-        String[] filters = {"hadoop"};
-
+       
         System.setProperty("twitter4j.oauth.consumerKey", consumerKey);
         System.setProperty("twitter4j.oauth.consumerSecret", consumerSecret);
         System.setProperty("twitter4j.oauth.accessToken", accessToken);
         System.setProperty("twitter4j.oauth.accessTokenSecret", accessTokenSecret);
 
         JavaStreamingContext jsc = new JavaStreamingContext(sparkConf,Durations.seconds(1));
-        JavaReceiverInputDStream<Status> lines = TwitterUtils.createStream(jsc,filters);
+        JavaReceiverInputDStream<Status> lines = TwitterUtils.createStream(jsc);
         jsc.checkpoint("/tmp/checkpoint_nw");
 
         //JavaReceiverInputDStream<String> lines= jsc.socketTextStream(host, port,StorageLevels.MEMORY_AND_DISK_SER);
