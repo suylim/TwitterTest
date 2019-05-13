@@ -16,10 +16,7 @@ public class SparkStream {
     public static void main(String[] args)  {
 
 
-        String host="localhost";
-        int port = 9999;
-
-        SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JavaTwitterHashTagJoinSentiments");
+        SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JavaTwitterTest");
 
 
         String consumerKey = "#############";
@@ -35,8 +32,6 @@ public class SparkStream {
         JavaStreamingContext jsc = new JavaStreamingContext(sparkConf,Durations.seconds(1));
         JavaReceiverInputDStream<Status> lines = TwitterUtils.createStream(jsc);
         jsc.checkpoint("/tmp/checkpoint_nw");
-
-        //JavaReceiverInputDStream<String> lines= jsc.socketTextStream(host, port,StorageLevels.MEMORY_AND_DISK_SER);
 
         JavaDStream<String> words= lines.flatMap(x->Arrays.asList(x.getText().split(" ")).iterator());
 
