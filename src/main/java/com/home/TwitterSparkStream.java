@@ -18,7 +18,7 @@ public class SparkStream {
 
         SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("JavaTwitterTest");
 
-
+        ## Declare Twitter App Dev Secret Keys
         String consumerKey = "#############";
         String consumerSecret = "#############";
         String accessToken = "##############-##################";
@@ -28,11 +28,12 @@ public class SparkStream {
         System.setProperty("twitter4j.oauth.consumerSecret", consumerSecret);
         System.setProperty("twitter4j.oauth.accessToken", accessToken);
         System.setProperty("twitter4j.oauth.accessTokenSecret", accessTokenSecret);
-
+        # Setup streaming context
         JavaStreamingContext jsc = new JavaStreamingContext(sparkConf,Durations.seconds(1));
         JavaReceiverInputDStream<Status> lines = TwitterUtils.createStream(jsc);
         jsc.checkpoint("/tmp/checkpoint_nw");
-
+        
+        #Split tweets on space, and calculate word count
         JavaDStream<String> words= lines.flatMap(x->Arrays.asList(x.getText().split(" ")).iterator());
 
         JavaPairDStream<String, Integer> wordcounts= words.mapToPair(x->new Tuple2<String, Integer>(x,1));
