@@ -16,7 +16,7 @@ public class SparkStream {
     public static void main(String[] args)  throws InterruptedException {
 
 
-        SparkConf sparkConf = new SparkConf().setMaster("local").setAppName("JavaTwitterTest");
+        SparkConf sparkConf = new SparkConf().setMaster("local[*]").setAppName("JavaTwitterTest");
 
 
         String consumerKey = "#############";
